@@ -1,6 +1,5 @@
 
 import { useState } from "react";
-import { Apple, Github, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -25,16 +24,16 @@ const Index = () => {
         <div className="space-y-4 slide-up">
           <div className="grid grid-cols-2 gap-3">
             <button className="auth-button">
-              <Mail className="h-5 w-5" />
+              GOOGLE
             </button>
             <button className="auth-button">
-              <Mail className="h-5 w-5" />
+              APPLE
             </button>
             <button className="auth-button">
-              <Apple className="h-5 w-5" />
+              GITHUB
             </button>
             <button className="auth-button">
-              <Github className="h-5 w-5" />
+              MICROSOFT
             </button>
           </div>
 
