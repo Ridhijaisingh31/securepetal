@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Apple, Github, Mail, Microsoft } from "lucide-react";
+import { Apple, Github, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -34,10 +34,6 @@ const Index = () => {
           <button className="auth-button">
             <Github className="h-5 w-5" />
             <span>Continue with GitHub</span>
-          </button>
-          <button className="auth-button">
-            <Microsoft className="h-5 w-5" />
-            <span>Continue with Microsoft</span>
           </button>
 
           <div className="relative">
