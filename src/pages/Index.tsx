@@ -3,22 +3,35 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { signInWithEmail, signUpWithEmail } from "@/lib/auth";
 
 const Index = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSignUp, setIsSignUp] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Sign in successful!");
+    
+    const success = isSignUp 
+      ? await signUpWithEmail(email, password)
+      : await signInWithEmail(email, password);
+
+    if (success && !isSignUp) {
+      toast.success("Sign in successful!");
+    }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-background">
       <div className="w-full max-w-md space-y-8 fade-in">
         <div className="text-center space-y-2">
-          <h1 className="text-3xl font-semibold tracking-tight">Welcome back</h1>
-          <p className="text-muted-foreground">Sign in to your account</p>
+          <h1 className="text-3xl font-semibold tracking-tight">
+            {isSignUp ? "Create an account" : "Welcome back"}
+          </h1>
+          <p className="text-muted-foreground">
+            {isSignUp ? "Sign up to get started" : "Sign in to your account"}
+          </p>
         </div>
 
         <div className="space-y-4 slide-up">
@@ -69,30 +82,32 @@ const Index = () => {
                 required
               />
             </div>
-            <div className="text-sm text-right">
-              <a
-                href="#"
-                className="text-primary hover:text-primary/90 transition-colors"
-              >
-                Forgot password?
-              </a>
-            </div>
+            {!isSignUp && (
+              <div className="text-sm text-right">
+                <a
+                  href="#"
+                  className="text-primary hover:text-primary/90 transition-colors"
+                >
+                  Forgot password?
+                </a>
+              </div>
+            )}
             <Button
               type="submit"
               className="w-full h-12 text-base font-medium bg-primary hover:bg-primary/90"
             >
-              Sign in
+              {isSignUp ? "Sign up" : "Sign in"}
             </Button>
           </form>
 
           <p className="text-center text-sm text-muted-foreground">
-            Don't have an account?{" "}
-            <a
-              href="#"
+            {isSignUp ? "Already have an account? " : "Don't have an account? "}
+            <button
+              onClick={() => setIsSignUp(!isSignUp)}
               className="text-primary hover:text-primary/90 transition-colors font-medium"
             >
-              Sign up
-            </a>
+              {isSignUp ? "Sign in" : "Sign up"}
+            </button>
           </p>
         </div>
       </div>
