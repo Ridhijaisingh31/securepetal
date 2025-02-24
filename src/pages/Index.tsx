@@ -23,18 +23,20 @@ const Index = () => {
         </div>
 
         <div className="space-y-4 slide-up">
-          <button className="auth-button">
-            <Mail className="h-5 w-5" />
-            <span>Continue with Google</span>
-          </button>
-          <button className="auth-button">
-            <Apple className="h-5 w-5" />
-            <span>Continue with Apple</span>
-          </button>
-          <button className="auth-button">
-            <Github className="h-5 w-5" />
-            <span>Continue with GitHub</span>
-          </button>
+          <div className="grid grid-cols-2 gap-3">
+            <button className="auth-button">
+              <Mail className="h-5 w-5" />
+            </button>
+            <button className="auth-button">
+              <Mail className="h-5 w-5" />
+            </button>
+            <button className="auth-button">
+              <Apple className="h-5 w-5" />
+            </button>
+            <button className="auth-button">
+              <Github className="h-5 w-5" />
+            </button>
+          </div>
 
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
