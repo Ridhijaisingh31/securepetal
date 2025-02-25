@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { signInWithEmail, signUpWithEmail } from "@/lib/auth";
 import { useSession } from "@/contexts/SessionContext";
 import { Navigate } from "react-router-dom";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Index = () => {
   const [email, setEmail] = useState("");
@@ -32,6 +33,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-background">
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div>
       <div className="w-full max-w-md space-y-8 fade-in">
         <div className="text-center space-y-2">
           <h1 className="text-3xl font-semibold tracking-tight">
