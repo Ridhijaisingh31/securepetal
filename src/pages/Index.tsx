@@ -4,11 +4,19 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { signInWithEmail, signUpWithEmail } from "@/lib/auth";
+import { useSession } from "@/contexts/SessionContext";
+import { Navigate } from "react-router-dom";
 
 const Index = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
+  const { user, loading } = useSession();
+
+  // Redirect if already authenticated
+  if (!loading && user) {
+    return <Navigate to="/dashboard" replace />;
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
