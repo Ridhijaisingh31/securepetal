@@ -46,7 +46,7 @@
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 100%;
+    --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 92 76% 41%;
   }
@@ -59,12 +59,8 @@
     @apply bg-background text-foreground font-inter antialiased;
   }
 
-  .dark * {
-    @apply border-[0.5px];
-  }
-
   .auth-button {
-    @apply flex w-full items-center justify-center gap-2 rounded-lg border border-input bg-transparent px-4 py-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+    @apply flex w-full items-center justify-center gap-2 rounded-lg border border-input bg-transparent px-4 py-3 text-sm font-medium transition-colors hover:bg-secondary hover:text-secondary-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
   }
 
   .fade-in {
